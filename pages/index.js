@@ -3,11 +3,27 @@ import Layout from '../components/Layout';
 import fetch from 'isomorphic-unfetch';
 
 const PostLink = props => (
-    <li>
-        <Link href="/p/[id]" as={`/p/${props.id}`}>
-            <a>{props.name}</a>
-        </Link>
-    </li>
+    <>
+        <li>
+            <Link href="/p/[id]" as={`/p/${props.id}`}>
+                <a>{props.name}</a>
+            </Link>
+        </li><style jsx>{`
+            li {
+                list-style: none;
+                margin: 5px 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: red;
+            }
+
+            a:hover {
+                opacity: 0.6;
+            }
+        `}</style>
+    </>
 );
 const Index = props => (
     <Layout>
@@ -20,7 +36,16 @@ const Index = props => (
                     name={show.name}>
                 </PostLink>
             ))}
-        </ul>
+        </ul><style jsx>{`
+        h1,
+        a {
+            font-family: 'Arial';
+        }
+
+        ul {
+            padding: 0;
+        }
+      `}</style>
     </Layout>
 );
 
